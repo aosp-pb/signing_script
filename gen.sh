@@ -43,6 +43,8 @@ done
 mkdir -p vendor/aospb-priv
 mv ~/.android-certs/* vendor/aospb-priv/keys
 echo "PRODUCT_DEFAULT_DEV_CERTIFICATE := vendor/aospb-priv/keys/releasekey" > vendor/aospb-priv/keys/keys.mk
+echo "PRODUCT_OTA_PUBLIC_KEYS := vendor/aospb-priv/keys/otakey.x509.pem" > vendor/aospb-priv/keys/keys.mk
+echo "PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.oem_unlock_supported=1" > vendor/aospb-priv/keys/keys.mk
 
 # Create BUILD.bazel file
 cat <<EOF > vendor/aospb-priv/keys/BUILD.bazel
